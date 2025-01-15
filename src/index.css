@@ -13,3 +13,21 @@
 ul {
   list-style-type: none;
 }
+
+input {
+  border: 1px solid;
+  padding: 10px;
+  background-color: whitesmoke;
+  color: black;
+}
+
+button {
+  background-color: whitesmoke;
+  padding: 10px;
+  border-radius: 4px;
+}
+
+button:hover {
+  background-color: rgb(204, 201, 201);
+  opacity: 0.8;
+}
