@@ -117,7 +117,7 @@ const UseState = () => {
     if (first.length === 0) {
       return alert("이름을 입력하세요.");
     }
-    if (first === obj.first) {
+    if (first === obj["first"]) {
       return alert("이전과 같은 이름입니다.");
     }
     setObj((prev) => {
@@ -126,8 +126,8 @@ const UseState = () => {
     alert("이름이 변경되었습니다.");
   };
 
+  const [array, setArray] = useState(["a", "b", "c", "d"]);
   const onAddArray = () => {
-    const [array, setArray] = useState(["a", "b", "c", "d"]);
     console.log(string.length);
     // 만약에 string 이라는 변수의 길이가 0일때가 아무것도 입력하지 않은 때인데 이떄는 안됨.
     if (string.length === 0) {
@@ -143,10 +143,9 @@ const UseState = () => {
 
     setArray((prev) => {
       // console.log(prev);
-      // let copy = [...prev, string]; // [string, ...prev]; 스트링을 앞에 두면 앞에 추가됨.
+      let copy = [...prev, string]; // [string, ...prev]; 스트링을 앞에 두면 앞에 추가됨.
 
       // console.log(copy);
-      return copy;
     });
   };
 
@@ -167,16 +166,13 @@ const UseState = () => {
       if (isSame) {
         return person;
       }
-      if (found) {
-        return alert("동일한 인물이 존재합니다.");
-      }
-      alert("새로운 인물입니다.");
-      setObjArray((prev) => {
-        let copy = [...prev, newPerson];
-        console.log(copy);
-
-        return copy;
-      });
+    });
+    if (found) {
+      return alert("동일한 인물이 존재합니다.");
+    }
+    alert("새로운 인물입니다.");
+    setObjArray((prev) => {
+      return [newPerson, ...prev];
     });
   };
 
@@ -238,7 +234,7 @@ const UseState = () => {
           onChange={(e) => setLast(e.target.value)}
           placeholder="새로운 성을 입력해주세요."
         />
-        <button onClick={onLast}>성 계명</button>
+        <button onClick={onLast}>성 개명</button>
       </div>
 
       <div>
@@ -249,7 +245,7 @@ const UseState = () => {
           onChange={(e) => setFirst(e.target.value)}
           placeholder="새로운 이름을 입력해주세요."
         />
-        <button onClick={onFirst}>이름 계명</button>
+        <button onClick={onFirst}>이름 개명</button>
       </div>
 
       <div>

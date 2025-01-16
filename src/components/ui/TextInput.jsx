@@ -33,11 +33,11 @@ export const useTextInput = () => {
   }, [ref]);
 
   const Component = useCallback(
-    ({ placeholder, id, style, inputCn, divCn }) => {
+    ({ placeholder, id, inputCn, divCn }) => {
       return (
         <TextInput
           id={id}
-          ref={inputRef}
+          inputRef={ref}
           placeholder={placeholder}
           divCn={divCn}
           inputCn={inputCn}

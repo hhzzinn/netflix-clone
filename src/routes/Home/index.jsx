@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useEffect } from "react";
 import { useTextInput } from "../../components/ui/TextInput";
 import OpenColor from "open-color";
 import styles from "./home.css";

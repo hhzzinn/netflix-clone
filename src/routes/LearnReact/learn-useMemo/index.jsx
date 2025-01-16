@@ -3,8 +3,7 @@ import { useCallback, useMemo, useRef, useState } from "react";
 const LearnUseMemo = () => {
   // const 변수명 = useMemo()
   //   const 변수명 = useMemo(
-  //     () => {},
-  //     [] //()안에 콜백함수와 의존성을 넣어줘야 한다.
+  //     () => {},[] //()안에 콜백함수와 의존성을 넣어줘야 한다.
   //   );
 
   // 1. 초기값으로 사용하는 경우

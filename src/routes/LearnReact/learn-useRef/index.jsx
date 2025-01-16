@@ -21,7 +21,6 @@ const LearnUseRef = () => {
   const checkP = () => {
     if (pRef.current) {
       console.log(pRef.current.innerText);
-      pRef.current.innerText = "123123123";
     }
   };
 
@@ -30,7 +29,11 @@ const LearnUseRef = () => {
     console.log(inputRef.current.value);
   };
 
-  const focusInput = () => [inputRef.current.focus()];
+  const focusInput = () => {
+    inputRef.current.focus();
+  };
+
+  const ref = useRef();
 
   useEffect(() => {
     console.log(state, pRef.current?.innerText);
