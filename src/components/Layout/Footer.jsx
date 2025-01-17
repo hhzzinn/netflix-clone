@@ -1,9 +1,9 @@
 import React from "react";
 import { fMenus } from "../../assets/fakebase";
-import { Link } from "react-router-dom";
 import OpenColor from "open-color";
 import { Button } from "../ui/Button";
 import { IoLanguage } from "react-icons/io5";
+import FooterItem from "./FooterItem";
 
 const Footer = () => {
   return (
@@ -29,19 +29,12 @@ const Footer = () => {
       >
         {fMenus.map((fMenu, index) => {
           return (
-            <li>
-              <Link
-                to={fMenu.path}
-                key={index}
-                style={{
-                  color: OpenColor.gray[5],
-                  textDecoration: "underline",
-                  fontSize: ".65rem",
-                }}
-              >
-                {fMenu.name}
-              </Link>
-            </li>
+            <FooterItem
+              key={fMenu.path}
+              {...fMenu}
+              // {}안에 ... 객체의 변수명을 적으면 복사하는 뜻이다.
+              // 리액트 컴포넌트에 이렇게 하는 것은 복사한 객체의 전부를 전달해주다는 뜻이다.
+            />
           );
         })}
       </ul>

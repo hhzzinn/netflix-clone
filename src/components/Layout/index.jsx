@@ -9,11 +9,10 @@ const Layout = () => {
     <>
       <Header />
       <main
-        className="bg-gray-900 text-gray-100 h-screen"
         style={{
           backgroundColor: OpenColor.gray[9],
           color: OpenColor.gray[0],
-          height: "100vh",
+          minHeight: "100vh",
           paddingTop: 70,
         }}
       >

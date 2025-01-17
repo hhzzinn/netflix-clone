@@ -10,6 +10,8 @@ import LearnUseEffect from "./LearnReact/Learn-useEffect";
 import LearnUseRef from "./LearnReact/learn-useRef";
 import LearnUseMemo from "./LearnReact/learn-useMemo";
 
+import PropsDrilling2 from "./props-drilling";
+
 const AppRouter = () => {
   return (
     <BrowserRouter>
@@ -27,6 +29,8 @@ const AppRouter = () => {
           <Route path="useRef" element={<LearnUseRef />} />
           <Route path="useMemo" element={<LearnUseMemo />} />
         </Route>
+
+        <Route path="props-drilling" element={<PropsDrilling2 />} />
       </Routes>
     </BrowserRouter>
   );
