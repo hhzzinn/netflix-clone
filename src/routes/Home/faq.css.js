@@ -5,8 +5,13 @@ const styles = {
   button: style({
     width: "100%",
     backgroundColor: OpenColor.gray[8],
+    display: "flex",
+    justifyContent: "space-between",
   }),
-  q: style({}),
+  q: style({
+    border: "1px solid",
+    textAlign: "left",
+  }),
   icon: style({}),
   div: style({}),
   p: style({}),

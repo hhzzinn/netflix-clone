@@ -2,6 +2,7 @@ import { faqs } from "../../assets/fakebase";
 import { Link } from "react-router-dom";
 import homeStyle from "./home.css";
 import styles from "./faq.css";
+import { useState } from "react";
 
 const FAQ = () => {
   return (

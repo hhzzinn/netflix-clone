@@ -11,6 +11,7 @@ const styles = {
     marginTop: top,
     borderRadius: 10,
     transition: "all .3s",
+    backgroundColor: OpenColor.gray[8],
 
     ":hover": {
       transform: "scale(1.05)",
@@ -29,8 +30,10 @@ const styles = {
   }),
   button: style({
     marginTop: 20,
+    backgroundColor: OpenColor.gray[7],
+    transition: "all .3s",
     ":hover": {
-      backgroundColor: OpenColor.gray[7],
+      backgroundColor: OpenColor.gray[6],
     },
   }),
   icon: style({
