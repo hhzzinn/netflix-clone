@@ -7,6 +7,14 @@ import {
   IoPulse,
 } from "react-icons/io5";
 
+export const users = [
+  {
+    email: "gudwlsdl2529@gmail.com",
+    password: "sksskekdla2~",
+    uid: "tester1",
+  },
+];
+
 export const user = null;
 
 export const fMenus = [
