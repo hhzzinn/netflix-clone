@@ -7,6 +7,7 @@ import AnotherReasonItem from "./AnotherReasonItem";
 import More from "./More";
 import FAQ from "./FAQ";
 import Start from "./Start";
+import ImageSlider from "./ImageSlider";
 
 // children 을 중괄호 안에서 가져오는 방법은 propsdrilling을 사용한 방법 react스러운 방법
 
@@ -22,9 +23,9 @@ const Home = () => {
 
   return (
     <div className={styles.wrap}>
-      <h1 className={styles.h1}>Home</h1>
       <Start />
       <More />
+      <ImageSlider />
 
       <div className={styles.Container.div}>
         <p className={styles.Container.p}>가입해야 하는 또 다른 이유</p>

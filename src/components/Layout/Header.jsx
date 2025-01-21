@@ -5,6 +5,8 @@ import OpenColor from "open-color";
 import { useEffect } from "react";
 import { user } from "../../assets/fakebase";
 import { Button } from "../ui/Button";
+import { style } from "@vanilla-extract/css";
+import styles from "./Header.css";
 
 const Header = () => {
   const navi = useNavigate();
@@ -31,41 +33,27 @@ const Header = () => {
 
   return (
     <header
-      className="flex justify-between items-center fixed top-0 left-0 w-full text-gray-100 z-50 bg-gray-900"
-      style={{
-        borderBottom: `1px solid ${OpenColor.gray[7]}`, //borderColor 먹이는 두가지 방법 백틱 자바스크립트, borderColor
-        // borderColor: OpenColor.gray[7],
-        height: "auto",
-        paddingRight: 10,
-      }}
+      className={styles.header}
+      // style={{
+      //   borderBottom: `1px solid ${OpenColor.gray[7]}`, //borderColor 먹이는 두가지 방법 백틱 자바스크립트, borderColor
+      //   // borderColor: OpenColor.gray[7],
+      //   height: "auto",
+      //   paddingRight: 10,
+      // }}
     >
       <Button
         onClick={onT}
-        className="h-10 px-2.5 text-2xl text-red-600" //tailwind css
-        style={{
-          fontSize: 30,
-          color: OpenColor.red[8],
-          padding: "20px 10px",
-          height: "auto",
-        }} //inline style
+        className={styles.netflix}
+        // className="h-10 px-2.5 text-2xl text-red-600" //tailwind css
       >
         <SiNetflix />
       </Button>
       <ul
-        className="flex gap-x-2.5"
-        style={{
-          display: "flex",
-          columnGap: 10,
-          alignItems: "center",
-        }}
+        // className="flex gap-x-2.5"
+        className={styles.ul}
       >
         <li>
-          <Button
-            style={{
-              border: "1px solid",
-              fontSize: ".75rem",
-            }}
-          >
+          <Button className={styles.lang}>
             <IoLanguage />
             언어
           </Button>
@@ -76,17 +64,7 @@ const Header = () => {
           (!user && pathname !== "/login") ||
           !user) && ( // && === ?:
           <li>
-            <Button
-              onClick={onL}
-              style={{
-                padding: "5px 10px",
-                backgroundColor: OpenColor.red[7],
-                fontSize: "0.75rem",
-                borderRadius: 4,
-              }}
-            >
-              로그인
-            </Button>
+            <Button onClick={onL}>로그인</Button>
           </li>
         )}
       </ul>
