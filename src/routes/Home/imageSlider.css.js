@@ -1,40 +1,55 @@
 import { style } from "@vanilla-extract/css";
-import OpenColor from "open-color";
+import { openSans } from "../../assets/fakebase";
 
 const button = style({
-  backgroundColor: OpenColor.gray[2],
   position: "absolute",
   top: "50%",
-  transform: "translateY(-50)",
+  transform: "translateY(-50%)",
+  zIndex: 2,
 });
 
 const styles = {
-  container: style({}),
-  isContainer: style({
-    position: "relative",
-  }),
-  isWrap: style({
-    display: "flex",
-    border: "2px solid tomato",
-  }),
-  isImg: style({
-    objectFit: "cover",
-    border: "1px solid",
-    // position: "absolute",
-    // width: "100%",
-    // height: "100%",
-    transition: "all .3s",
-  }),
-  isPrev: style([
+  item: {
+    container: style({
+      position: "relative",
+      transition: "all .3s",
+      ":hover": {
+        transform: "scale(1.03)",
+        "::after": {
+          content: "",
+          position: "absolute",
+          width: "100%",
+          height: "100%",
+          backgroundColor: "rgba(0, 0, 0, 0.2)",
+        },
+      },
+    }),
+    wrap: style({}),
+    title: style({
+      position: "absolute",
+      zIndex: 1,
+      bottom: 20,
+      width: "100%",
+      textAlign: "center",
+      fontFamily: openSans,
+    }),
+    img: style({
+      objectFit: "cover",
+      width: "100%",
+      borderRadius: 10,
+      position: "relative",
+    }),
+  },
+  prev: style([
     button,
     {
-      left: 0,
+      right: "100%",
     },
   ]),
-  isNext: style([
+  next: style([
     button,
     {
-      right: 0,
+      left: "100%",
     },
   ]),
 };

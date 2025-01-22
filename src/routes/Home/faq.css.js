@@ -16,7 +16,7 @@ const styles = {
     base: {
       backgroundColor: OpenColor.gray[8],
       marginTop: 1,
-      padding: 20,
+      padding: 0,
       overflow: "hidden",
       height: "0",
       transition: "all .3",

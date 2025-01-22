@@ -86,40 +86,43 @@ export const imgs = [
   {
     title: "화란",
     imgUrl:
-      "https://cdn.pixabay.com/photo/2024/08/15/19/19/highland-cow-8972000_640.jpg",
+      "https://cdn.pixabay.com/photo/2024/05/26/10/15/bird-8788491_1280.jpg",
   },
   {
     title: "외계+인 2부",
     imgUrl:
-      "https://cdn.pixabay.com/photo/2020/09/20/16/50/big-buddha-5587706_1280.jpg",
+      "https://cdn.pixabay.com/photo/2017/02/08/17/24/fantasy-2049567_1280.jpg",
   },
   {
     title: "월레스와 그로밋",
     imgUrl:
-      "https://cdn.pixabay.com/photo/2021/12/30/01/48/dog-6903071_640.jpg",
+      "https://cdn.pixabay.com/photo/2018/01/12/14/24/night-3078326_1280.jpg",
   },
   {
     title: "마",
     imgUrl:
-      "https://cdn.pixabay.com/photo/2019/04/18/10/31/flying-dog-4136563_640.jpg",
+      "https://cdn.pixabay.com/photo/2015/12/01/20/28/road-1072821_1280.jpg",
   },
   {
     title: "머시",
     imgUrl:
-      "https://cdn.pixabay.com/photo/2021/12/28/00/46/sanya-6898400_1280.jpg",
+      "https://cdn.pixabay.com/photo/2021/08/25/20/42/field-6574455_1280.jpg",
   },
   {
     title: "삶이 다할 때까지",
     imgUrl:
-      "https://cdn.pixabay.com/photo/2023/03/23/03/49/hippocampus-7871066_640.jpg",
+      "https://cdn.pixabay.com/photo/2024/02/09/13/03/beach-8563083_1280.jpg",
   },
   {
     title: "사랑의 하츄핑",
     imgUrl:
-      "https://cdn.pixabay.com/photo/2020/07/02/08/01/chicks-5362180_640.jpg",
+      "https://cdn.pixabay.com/photo/2023/02/01/10/37/sunset-7760143_1280.jpg",
   },
   {
     title: "파일럿",
-    imgUrl: "https://cdn.pixabay.com/photo/2010/12/06/23/pilot-1021_640.jpg",
+    imgUrl:
+      "https://cdn.pixabay.com/photo/2015/12/01/20/28/road-1072823_1280.jpg",
   },
 ];
+
+export const openSans = `"Open Sans", serif;`;

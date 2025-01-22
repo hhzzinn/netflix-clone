@@ -2,7 +2,7 @@ import { style } from "@vanilla-extract/css";
 import homeStyle from "./home.css";
 import OpenColor from "open-color";
 
-const top = 30;
+const top = 25;
 const styles = {
   container: style([homeStyle.Container.div, {}]),
   content: style({
