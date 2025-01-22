@@ -11,6 +11,7 @@ import LearnUseRef from "./LearnReact/learn-useRef";
 import LearnUseMemo from "./LearnReact/learn-useMemo";
 
 import PropsDrilling2 from "./props-drilling";
+import RandomNumber from "./random-number";
 
 const AppRouter = () => {
   return (
@@ -22,6 +23,9 @@ const AppRouter = () => {
           <Route path="faq" element={<FAQ />} />
           <Route path="contact-us" element={<ContactUs />} />
         </Route>
+
+        <Route path="/random-number" element={<RandomNumber />} />
+
         <Route path="/learn-react">
           <Route index element={<LearnReact />} />
           <Route path="useState" element={<UseState />} />
