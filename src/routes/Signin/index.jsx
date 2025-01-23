@@ -9,7 +9,7 @@ import styles from "./Signin.css";
 const Signin = () => {
   const navi = useNavigate();
 
-  const { email } = useMyContext();
+  const { email, onUserLogin, user } = useMyContext();
   const [value, setValue] = useState(email);
   const [pwd, setPwd] = useState("");
   const [checked, setChecked] = useState(false);
@@ -88,10 +88,12 @@ const Signin = () => {
         return alert("비밀번호가 일치하지 않습니다.");
       }
 
+      onUserLogin(email, foundEmail.uid);
+
       console.log("환영합니다.");
       navi("/");
     },
-    [emailMessage, pwdMessage, value, pwd, navi]
+    [emailMessage, pwdMessage, value, pwd, navi, onUserLogin, email]
   );
 
   useEffect(() => {
@@ -101,6 +103,12 @@ const Signin = () => {
       behavior: "smooth",
     });
   }, []);
+
+  useEffect(() => {
+    if (user) {
+      navi("/");
+    }
+  }, [user, navi]);
 
   return (
     <div>
@@ -128,7 +136,7 @@ const Signin = () => {
           onClick={() => {
             setChecked((prev) => !prev);
           }}
-          label={"로그인 정보를 저장"}
+          label={"로그인 정보 저장"}
           id="check"
         />
         <button className={styles.new}>

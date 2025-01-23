@@ -1,26 +1,23 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useCallback, useMemo, useRef } from "react";
 
+const initialMembers = [
+  "유경환",
+  "강산",
+  "최한나",
+  "허승이",
+  "김영화",
+  "이형진",
+  "강찬희",
+];
 const RandomNumber = () => {
-  const [number, setNumber] = useState(0);
-  const initialMembers = [
-    "유경환",
-    "강산",
-    "최한나",
-    "허승이",
-    "김영화",
-    "이형진",
-    "강찬희",
-  ];
+  const [members, setMembers] = useState(initialMembers);
 
-  const [selectedMembers, setSelectedMembers] = useState(initialMembers);
+  const [selectedMembers, setSelectedMembers] = useState([]); // 뽑힌 멤버는 배열
 
-  const [members, setMembers] = useState([]); // 뽑힌 멤버는 배열안의 배열이 들어갑니다.
-  const [team, setTeam] = useState([]);
+  const [teams, setTeams] = useState([]);
 
-  const [isMakingTeam, setIsMakingTeam] = useState(false);
   const [max, setMax] = useState(0);
   const [count, setCount] = useState(0);
-  const [currentIndex, setCurrentIndex] = useState(0);
 
   const onSubmit = (event) => {
     event.preventDefault();
@@ -36,15 +33,14 @@ const RandomNumber = () => {
     let number = Math.floor(Math.random() * members.length);
     const member = members[number];
 
-    const found = selectedMembers[currentIndex].find((person) => {
+    const found = selectedMembers?.find((person) => {
       if (person === member) {
         return person;
       }
     });
     if (found) {
-      return alert("중복");
+      return alert("중복된 사람입니다.");
     }
-
     setCount((prev) => {
       if (prev > 0) {
         return prev - 1;
@@ -52,19 +48,15 @@ const RandomNumber = () => {
       return prev;
     });
 
-    setSelectedMembers((prev) => {
-      let copy = [...prev];
+    setSelectedMembers((prev) => [...prev, member]);
 
-      return copy;
-    });
-
-    setTimeout(() => {
-      setMembers((prev) => {
-        let copy = [...prev];
-        copy.splice(number, 1);
-        return copy;
-      });
-    }, 100);
+    // setTimeout(() => {
+    //   setMembers((prev) => {
+    //     let copy = [...prev];
+    //     copy.splice(number, 1);
+    //     return copy;
+    //   });
+    // }, 100);
   };
 
   const onReset = () => {
@@ -72,16 +64,54 @@ const RandomNumber = () => {
     setCount(0);
   };
 
-  useEffect(() => {
-    console.log({ members, max, count, selectedMembers });
-  }, [members, max, count, selectedMembers]);
+  const onConfirm = () => {
+    const newTeam = [...selectedMembers];
+    setTeams((prev) => [...prev, newTeam]);
+    // 선택된 멤버들 초기화
+    setSelectedMembers([]);
+    // 기존 맴버들에서 선택된 멤버들만 골라서 삭제
+    // map, find
+    // newTeam.map((person) => {
+    //   const index = members.findIndex((member) => {
+    //     if (member === person) {
+    //       return member;
+    //     }
+    //   });
+
+    //   if (index >= 0) {
+    //     // setMembers((prev) => {
+    //     //   let copy = [...prev];
+    //     //   copy.splice(index, 1);
+    //     //   return copy;
+    //     // });
+    //     // filter 함수 : 배열.filter()
+    //   }
+    //   setMembers((prev) => prev.filter((member) => {}));
+    // });
+    newTeam.map((person) => {
+      setMembers((prev) =>
+        prev.filter((member) => {
+          if (member !== person) {
+            return member;
+          }
+        })
+      );
+    });
+
+    // max 초기화
+    setMax(0);
+
+    const a = "";
+    a.at();
+
+    // 변수를 만들고 .찍어보기
+    // 할 수 있는 함수, 값 찾아서 console.log()로 출력해보기.
+    // 이걸로 뭐 할 수 있을 지 고민해보기
+  };
 
   useEffect(() => {
-    if (max > 0) {
-      console.log(selectedMembers.length);
-      //   setCurrentIndex(selectedMembers.length);
-    }
-  }, [selectedMembers, max]);
+    console.log({ teams });
+  }, [teams]);
 
   return (
     <div>
@@ -114,12 +144,42 @@ const RandomNumber = () => {
           초기화
         </button>
       </form>
+
       <ul>
-        {currentIndex >= 0 &&
-          selectedMembers[currentIndex]?.map((member) => {
-            return <li key={member}>{member}</li>;
-          })}
+        {selectedMembers.map((member, index) => {
+          return (
+            <li key={member}>
+              {index + 1}. {member}
+            </li>
+          );
+        })}
       </ul>
+
+      {max > 0 && count === 0 && <button onClick={onConfirm}>멤버 확정</button>}
+
+      {teams.length > 0 && (
+        <>
+          <h1>만들어진 팀</h1>
+          <ul>
+            {teams.map((team, index) => {
+              return (
+                <li key={team.length}>
+                  <h3>
+                    <br />
+                    {index + 1}번 팀
+                  </h3>
+
+                  <ul>
+                    {team.map((member) => {
+                      return <li key={member}>{member}</li>;
+                    })}
+                  </ul>
+                </li>
+              );
+            })}
+          </ul>
+        </>
+      )}
     </div>
   );
 };

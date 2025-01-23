@@ -8,6 +8,8 @@ import More from "./More";
 import FAQ from "./FAQ";
 import Start from "./Start";
 import ImageSlider from "./ImageSlider";
+import { useMyContext } from "../../contextApi/ContextProvider";
+import UserHome from "./userHome";
 
 // children 을 중괄호 안에서 가져오는 방법은 propsdrilling을 사용한 방법 react스러운 방법
 
@@ -20,6 +22,12 @@ const Home = () => {
 
     console.log(Text.ref.current.value);
   };
+
+  const { user } = useMyContext();
+
+  if (user) {
+    return <UserHome />;
+  }
 
   return (
     <div className={styles.wrap}>
